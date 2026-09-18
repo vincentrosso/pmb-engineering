@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PMB Engineering — Senior Engineering &amp; Manufacturing Consulting | Paul Boucher</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta name="description" content="PMB Engineering provides senior technical consulting, root-cause problem solving, and engineering leadership for challenging product, process, and manufacturing problems. 26 years across medical device and manufacturing. Paul Boucher, Stillwater, Minnesota." />
+<meta name="theme-color" content="#16233D" />
+<meta property="og:title" content="PMB Engineering — Difficult problems need experienced engineering" />
+<meta property="og:description" content="Senior engineering consulting, root-cause problem solving, and technical leadership for difficult product, process, and manufacturing problems." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#FBF9F5;
+  --bg-alt:#F2EEE5;
+  --surface:#FFFFFF;
+  --ink:#16233D;
+  --ink-2:#22314E;
+  --muted:#606A7D;
+  --faint:#8B93A2;
+  --line:rgba(22,35,61,.12);
+  --line-2:rgba(22,35,61,.07);
+  --accent:#B0803A;
+  --accent-strong:#976A28;
+  --accent-tint:rgba(176,128,58,.12);
+  --shadow:0 1px 2px rgba(22,35,61,.04), 0 12px 40px -18px rgba(22,35,61,.22);
+  --radius:16px;
+  --maxw:1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1420;
+    --bg-alt:#111A2A;
+    --surface:#152035;
+    --ink:#F3F0E9;
+    --ink-2:#DCDCE2;
+    --muted:#A2AAB9;
+    --faint:#6E7688;
+    --line:rgba(243,240,233,.14);
+    --line-2:rgba(243,240,233,.07);
+    --accent:#D6A555;
+    --accent-strong:#E7BA6D;
+    --accent-tint:rgba(214,165,85,.15);
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 18px 50px -20px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1420;
+  --bg-alt:#111A2A;
+  --surface:#152035;
+  --ink:#F3F0E9;
+  --ink-2:#DCDCE2;
+  --muted:#A2AAB9;
+  --faint:#6E7688;
+  --line:rgba(243,240,233,.14);
+  --line-2:rgba(243,240,233,.07);
+  --accent:#D6A555;
+  --accent-strong:#E7BA6D;
+  --accent-tint:rgba(214,165,85,.15);
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 18px 50px -20px rgba(0,0,0,.6);
+}
+
+/* ============ BASE ============ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:17px; line-height:1.65; font-weight:400;
+  -webkit-font-smoothing:antialiased; letter-spacing:-.005em;
+  transition:background .35s ease,color .35s ease;
+}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif; font-weight:500; line-height:1.05; letter-spacing:-.018em; color:var(--ink); margin:0}
+p{margin:0}
+a{color:inherit; text-decoration:none}
+img,svg{display:block; max-width:100%}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(20px,5vw,48px)}
+.kicker{
+  font-family:"IBM Plex Mono",monospace; font-size:12.5px; font-weight:500;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--accent);
+  display:inline-flex; align-items:center; gap:10px;
+}
+.kicker::before{content:""; width:26px; height:1px; background:var(--accent); opacity:.65}
+.eyebrow-num{font-family:"IBM Plex Mono",monospace; color:var(--accent); font-weight:500}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex; align-items:center; gap:9px; cursor:pointer;
+  font-family:"Inter",sans-serif; font-size:15px; font-weight:550; letter-spacing:.005em;
+  padding:14px 24px; border-radius:999px; border:1px solid transparent;
+  transition:transform .18s ease, background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
+  will-change:transform;
+}
+.btn svg{width:16px;height:16px;transition:transform .2s ease}
+.btn-primary{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+.btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 28px -12px rgba(22,35,61,.5)}
+.btn-primary:hover svg{transform:translateX(3px)}
+.btn-ghost{background:transparent; color:var(--ink); border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink); transform:translateY(-2px)}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:6px}
+
+/* ============ LOGO ============ */
+.logo{display:inline-flex; align-items:center; gap:12px}
+.mark{width:40px;height:40px;flex:0 0 40px}
+.mark-token{fill:var(--ink)}
+.mark-glyph{stroke:var(--bg); stroke-width:2; stroke-linecap:round}
+.mark-ring{stroke:var(--bg); stroke-width:1.4; fill:none; opacity:.45}
+.mark-dot{fill:var(--accent)}
+.logo-type{display:flex; flex-direction:column; line-height:1}
+.logo-type b{font-family:"Fraunces",serif; font-weight:600; font-size:20px; letter-spacing:-.01em; color:var(--ink)}
+.logo-type span{font-family:"IBM Plex Mono",monospace; font-size:9.5px; font-weight:500; letter-spacing:.34em; text-transform:uppercase; color:var(--muted); margin-top:3px}
+
+/* ============ HEADER ============ */
+header{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter:saturate(160%) blur(14px); -webkit-backdrop-filter:saturate(160%) blur(14px);
+  border-bottom:1px solid transparent; transition:border-color .3s ease, background .3s ease;
+}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex; align-items:center; justify-content:space-between; height:74px}
+.nav-links{display:flex; align-items:center; gap:34px; list-style:none; margin:0; padding:0}
+.nav-links a{font-size:14.5px; color:var(--muted); font-weight:500; position:relative; transition:color .2s ease}
+.nav-links a::after{content:""; position:absolute; left:0; bottom:-6px; width:0; height:1.5px; background:var(--accent); transition:width .25s ease}
+.nav-links a:hover{color:var(--ink)} .nav-links a:hover::after{width:100%}
+.nav-right{display:flex; align-items:center; gap:16px}
+.icon-btn{width:40px;height:40px; display:grid; place-items:center; border-radius:999px; border:1px solid var(--line); background:transparent; color:var(--ink); cursor:pointer; transition:border-color .2s, transform .2s}
+.icon-btn:hover{border-color:var(--ink)} .icon-btn svg{width:18px;height:18px}
+.theme-icon-dark{display:none} :root[data-theme="dark"] .theme-icon-light{display:none} :root[data-theme="dark"] .theme-icon-dark{display:block}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .theme-icon-light{display:none} :root:not([data-theme="light"]) .theme-icon-dark{display:block}}
+.menu-btn{display:none}
+.header-cta{padding:11px 20px; font-size:14px}
+
+/* ============ MOBILE NAV ============ */
+.mobile-nav{position:fixed; inset:0; z-index:60; background:var(--bg); transform:translateY(-100%); transition:transform .4s cubic-bezier(.7,0,.2,1); display:flex; flex-direction:column; padding:24px}
+.mobile-nav.open{transform:translateY(0)}
+.mobile-nav .mn-top{display:flex; justify-content:space-between; align-items:center; height:50px}
+.mobile-nav ul{list-style:none; margin:auto 0; padding:0; display:flex; flex-direction:column; gap:8px}
+.mobile-nav a{font-family:"Fraunces",serif; font-size:clamp(2rem,9vw,2.8rem); font-weight:400; color:var(--ink); padding:8px 0; display:flex; align-items:baseline; gap:16px}
+.mobile-nav a .mn-num{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--accent); font-weight:500}
+.mobile-nav .mn-foot{padding-top:24px; border-top:1px solid var(--line); font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted); letter-spacing:.05em}
+
+/* ============ HERO ============ */
+.hero{padding:clamp(56px,10vw,110px) 0 clamp(48px,7vw,80px); position:relative; overflow:hidden}
+.hero-grid{display:grid; grid-template-columns:1.5fr .9fr; gap:clamp(32px,5vw,72px); align-items:center}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5.4rem); margin:26px 0 0; font-weight:450}
+.hero h1 em{font-style:italic; color:var(--accent); font-weight:400}
+.hero-sub{margin-top:26px; font-size:clamp(1.02rem,1.5vw,1.22rem); color:var(--muted); max-width:34ch; line-height:1.6}
+.hero-cta{margin-top:38px; display:flex; gap:14px; flex-wrap:wrap}
+/* spec card */
+.spec{border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); overflow:hidden}
+.spec-head{padding:16px 22px; border-bottom:1px solid var(--line-2); display:flex; align-items:center; justify-content:space-between}
+.spec-head span{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--faint)}
+.spec-dot{display:flex; gap:6px} .spec-dot i{width:8px;height:8px;border-radius:50%;background:var(--line); display:block} .spec-dot i:first-child{background:var(--accent)}
+.spec-row{padding:15px 22px; display:flex; flex-direction:column; gap:3px; border-bottom:1px solid var(--line-2)}
+.spec-row:last-child{border-bottom:0}
+.spec-row dt{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--faint)}
+.spec-row dd{margin:0; font-size:15.5px; color:var(--ink); font-weight:500}
+
+/* ============ MARQUEE / TRUST ============ */
+.trust{padding:30px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.trust-inner{display:flex; align-items:center; gap:clamp(20px,4vw,52px); flex-wrap:wrap}
+.trust-label{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--faint); white-space:nowrap}
+.trust-names{display:flex; align-items:center; gap:clamp(18px,3.4vw,40px); flex-wrap:wrap}
+.trust-names span{font-family:"Fraunces",serif; font-size:clamp(1.05rem,1.8vw,1.5rem); color:var(--ink); font-weight:500; opacity:.72; transition:opacity .2s}
+.trust-names span:hover{opacity:1}
+
+/* ============ PROOF / STATS ============ */
+.proof-lead{max-width:760px}
+.proof-line{font-family:"Fraunces",serif; font-size:clamp(1.4rem,2.7vw,2.15rem); font-weight:400; line-height:1.28; color:var(--ink); margin-top:20px; letter-spacing:-.012em}
+.proof-line b{font-weight:500; color:var(--ink); font-style:italic}
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-top:clamp(36px,4.5vw,56px)}
+.stat{background:var(--bg); padding:clamp(24px,3vw,34px) clamp(4px,1.4vw,18px); display:flex; flex-direction:column; gap:10px}
+.stat b{font-family:"Fraunces",serif; font-size:clamp(2.3rem,5vw,3.4rem); font-weight:400; color:var(--ink); line-height:.95; letter-spacing:-.02em}
+.stat.key b{color:var(--accent)}
+.stat span{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.04em; color:var(--muted); text-transform:uppercase; line-height:1.45}
+@media(max-width:600px){.stats{grid-template-columns:1fr 1fr}}
+
+/* ============ SECTIONS ============ */
+section{padding:clamp(64px,9vw,120px) 0}
+.sec-head{max-width:640px; margin-bottom:clamp(40px,5vw,64px)}
+.sec-head h2{font-size:clamp(2rem,4.2vw,3.2rem); margin-top:18px}
+.sec-head p{margin-top:18px; color:var(--muted); font-size:1.08rem}
+.alt{background:var(--bg-alt)}
+
+/* capability cards */
+.cards{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden}
+.card{background:var(--bg); padding:clamp(28px,3.4vw,42px); transition:background .3s ease}
+.alt .card{background:var(--bg-alt)}
+.card:hover{background:var(--surface)}
+.card-num{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--accent); font-weight:500}
+.card h3{font-family:"Fraunces",serif; font-size:1.5rem; font-weight:500; margin:18px 0 12px}
+.card p{color:var(--muted); font-size:.99rem; line-height:1.6}
+
+/* approach list */
+.approach{display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(28px,4vw,56px)}
+.step{display:flex; gap:22px}
+.step .n{font-family:"Fraunces",serif; font-size:2.4rem; font-weight:300; color:var(--accent); line-height:1; flex:0 0 auto; font-feature-settings:"lnum"}
+.step h3{font-size:1.3rem; font-weight:550; font-family:"Inter",sans-serif; letter-spacing:-.01em; margin-bottom:8px}
+.step p{color:var(--muted); font-size:.99rem}
+
+/* experience timeline */
+.xp{border-top:1px solid var(--line)}
+.xp-row{display:grid; grid-template-columns:130px 1fr auto; gap:clamp(16px,3vw,48px); align-items:baseline; padding:26px 4px; border-bottom:1px solid var(--line); transition:padding-left .25s ease, background .25s ease}
+.xp-row:hover{padding-left:16px; background:var(--surface)}
+.xp-years{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--accent); font-weight:500; letter-spacing:.02em}
+.xp-main h3{font-family:"Inter",sans-serif; font-size:1.22rem; font-weight:600; letter-spacing:-.01em}
+.xp-main .org{color:var(--ink); font-weight:500; font-size:1rem; margin-top:2px}
+.xp-main .org b{color:var(--accent); font-weight:600}
+.xp-main p{color:var(--muted); font-size:.96rem; margin-top:9px; max-width:62ch}
+.xp-tag{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--faint); letter-spacing:.08em; text-transform:uppercase; white-space:nowrap}
+@media(max-width:720px){ .xp-tag{display:none} .xp-row{grid-template-columns:1fr} .xp-years{order:-1} }
+
+/* credentials */
+.creds{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden}
+.cred{background:var(--bg); padding:26px}
+.alt .cred{background:var(--bg-alt)}
+.cred h4{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:500; margin:0 0 12px}
+.cred p{font-size:.95rem; color:var(--ink); line-height:1.55}
+.cred p span{color:var(--muted)}
+
+/* ============ CONTACT ============ */
+.contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,72px); align-items:start}
+.contact-intro h2{font-size:clamp(2.1rem,4.4vw,3.4rem)}
+.contact-intro p{color:var(--muted); margin-top:22px; font-size:1.06rem; max-width:42ch}
+.person{margin-top:40px; display:flex; gap:18px; align-items:center; padding:22px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow)}
+.avatar{width:64px;height:64px;flex:0 0 64px;border-radius:50%; background:var(--ink); display:grid; place-items:center; overflow:hidden}
+.avatar span{font-family:"Fraunces",serif; font-size:1.5rem; color:var(--bg); font-weight:600}
+.person .pn{font-weight:600; font-size:1.05rem}
+.person .pt{color:var(--muted); font-size:.9rem; margin-top:2px}
+.person .pe{color:var(--accent); font-family:"IBM Plex Mono",monospace; font-size:.82rem; margin-top:8px; letter-spacing:.01em}
+.person .pe:hover{text-decoration:underline}
+
+.form{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:clamp(24px,3vw,36px); box-shadow:var(--shadow)}
+.field{margin-bottom:18px} .field:last-of-type{margin-bottom:24px}
+.field label{display:block; font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:8px}
+.field label i{color:var(--accent); font-style:normal}
+.field input,.field textarea{
+  width:100%; background:var(--bg); border:1px solid var(--line); border-radius:10px;
+  padding:13px 15px; font-family:"Inter",sans-serif; font-size:15px; color:var(--ink);
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.field input:focus,.field textarea:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-tint)}
+.field textarea{resize:vertical; min-height:120px}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.form .btn-primary{width:100%; justify-content:center}
+.form-note{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--faint); text-align:center; margin-top:14px; letter-spacing:.03em}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line); padding:56px 0 40px}
+.foot-grid{display:flex; justify-content:space-between; align-items:flex-start; gap:32px; flex-wrap:wrap}
+.foot-tag{color:var(--muted); font-size:.95rem; max-width:34ch; margin-top:18px}
+.foot-links{display:flex; gap:28px; flex-wrap:wrap}
+.foot-links a{color:var(--muted); font-size:14px; transition:color .2s} .foot-links a:hover{color:var(--ink)}
+.foot-bottom{margin-top:44px; padding-top:24px; border-top:1px solid var(--line-2); display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--faint); letter-spacing:.04em}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1)}
+.reveal.in{opacity:1; transform:none}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:860px){
+  .nav-links,.header-cta{display:none}
+  .menu-btn{display:grid}
+  .hero-grid{grid-template-columns:1fr; gap:44px}
+  .spec{max-width:460px}
+  .contact-grid{grid-template-columns:1fr; gap:44px}
+}
+@media(max-width:600px){
+  .cards{grid-template-columns:1fr}
+  .approach{grid-template-columns:1fr; gap:30px}
+  .creds{grid-template-columns:1fr 1fr}
+  .two{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important; transition:none!important}
+  .reveal{opacity:1; transform:none}
+}
+
+/* ---- handwritten logo (external svg, themeable via mask) ---- */
+.logo{gap:0}
+.mark-hw{display:block; height:34px; aspect-ratio:2343/531; background:var(--ink);
+  -webkit-mask:url("pmb-logo.svg") no-repeat center/contain; mask:url("pmb-logo.svg") no-repeat center/contain;}
+.mn-top .mark-hw{height:28px}
+footer .mark-hw{height:42px; margin-bottom:4px}
+</style>
+</head>
+<body>
+
+<!-- reusable logo markup is inlined where needed -->
+<header id="site-header">
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="PMB Engineering home">
+      <span class="mark-hw" role="img" aria-label="PMB engineering"></span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle color theme">
+        <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.4 4.4l1.8 1.8M17.8 17.8l1.8 1.8M2.5 12h2.6M18.9 12h2.6M4.4 19.6l1.8-1.8M17.8 6.2l1.8-1.8"/></svg>
+        <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+      <a href="#contact" class="btn btn-primary header-cta">Discuss a problem</a>
+      <button class="icon-btn menu-btn" id="menu-open" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <div class="mn-top">
+    <span class="logo" style="pointer-events:none">
+      <span class="mark-hw" role="img" aria-label="PMB engineering"></span>
+    </span>
+    <button class="icon-btn" id="menu-close" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <ul>
+    <li><a href="#capabilities"><span class="mn-num">01</span>Capabilities</a></li>
+    <li><a href="#approach"><span class="mn-num">02</span>Approach</a></li>
+    <li><a href="#experience"><span class="mn-num">03</span>Experience</a></li>
+    <li><a href="#contact"><span class="mn-num">04</span>Contact</a></li>
+  </ul>
+  <div class="mn-foot">PMB ENGINEERING · STILLWATER, MINNESOTA</div>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding-bottom:clamp(48px,7vw,80px)">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <span class="kicker">Senior Engineering Consulting</span>
+        <h1>Difficult problems need <em>experienced</em> engineering.</h1>
+        <p class="hero-sub">Senior technical consulting, root-cause problem solving, and engineering leadership for challenging product, process, and manufacturing work — especially when the problem isn't well defined and the conventional approach has stalled.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Discuss a problem <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#experience" class="btn btn-ghost">See experience</a>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.12s">
+        <dl class="spec">
+          <div class="spec-head"><span>Practice · profile</span><span class="spec-dot"><i></i><i></i><i></i></span></div>
+          <div class="spec-row"><dt>Discipline</dt><dd>Medical device · Manufacturing</dd></div>
+          <div class="spec-row"><dt>Focus</dt><dd>Root cause · Process · Scale-up</dd></div>
+          <div class="spec-row"><dt>Based</dt><dd>Stillwater, Minnesota</dd></div>
+          <div class="spec-row"><dt>Practicing</dt><dd>26 years — since 1999</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <div class="trust reveal">
+    <div class="wrap trust-inner">
+      <span class="trust-label">Experience across</span>
+      <div class="trust-names">
+        <span>Medtronic</span><span>3M</span><span>Phillips-Medisize</span><span>Genentech&nbsp;program</span><span>Wells&nbsp;Fargo</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROOF -->
+  <section aria-label="Why PMB" style="padding:clamp(60px,8vw,96px) 0 clamp(56px,7vw,88px)">
+    <div class="wrap">
+      <div class="proof-lead reveal">
+        <span class="kicker">Substance over scale</span>
+        <p class="proof-line">You work directly with the senior engineer on the problem — <b>no account managers, no hand-offs, no junior team learning on your program.</b></p>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><b>26</b><span>Years on difficult problems</span></div>
+        <div class="stat"><b>5</b><span>U.S. patents</span></div>
+        <div class="stat"><b>$20M+</b><span>Phase-1 program value</span></div>
+        <div class="stat key"><b>1</b><span>Senior engineer — the one you hire</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section id="capabilities">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker"><span class="eyebrow-num">01</span> Capabilities</span>
+        <h2>Where experienced engineering makes the difference.</h2>
+        <p>Brought in for the work that resists standard playbooks — where judgment, not just process, decides the outcome.</p>
+      </div>
+      <div class="cards reveal">
+        <div class="card">
+          <span class="card-num">01</span>
+          <h3>Technical Problem Solving</h3>
+          <p>Complex failures, difficult root-cause investigations, capability problems, and situations where conventional approaches have stalled.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">02</span>
+          <h3>Process &amp; Manufacturing Development</h3>
+          <p>Process development, equipment and tooling, validation and qualification, statistical methods, and manufacturing scale-up.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">03</span>
+          <h3>Technical Leadership</h3>
+          <p>Senior engineering leadership for critical projects, accelerated timelines, cross-functional teams, and high-visibility technical challenges.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">04</span>
+          <h3>Design for Manufacturability</h3>
+          <p>Bringing manufacturing capability upstream so product requirements and designs are grounded in what can actually be produced robustly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach" class="alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker"><span class="eyebrow-num">02</span> Approach</span>
+        <h2>Understand what's actually happening — then solve it.</h2>
+      </div>
+      <div class="approach reveal">
+        <div class="step"><div class="n">1</div><div><h3>Start with the problem</h3><p>Understand what's actually happening before deciding what the solution should be — questioning assumptions, separating symptoms from causes, and reframing problems that have resisted conventional approaches.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3>Move between details and the system</h3><p>Get deep into the data, process, or failure mechanism when a problem demands it — and step back to see how requirements, manufacturing, risk, schedule, and people interact.</p></div></div>
+        <div class="step"><div class="n">3</div><div><h3>Use evidence to decide</h3><p>Data, statistics, experiments, engineering analysis, and direct observation to reduce uncertainty — matched to the decision at hand, not complexity for its own sake.</p></div></div>
+        <div class="step"><div class="n">4</div><div><h3>The objective is progress</h3><p>Enough understanding to make sound decisions, solve the problem, and move the work forward. Analysis is a tool, not the goal.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker"><span class="eyebrow-num">03</span> Experience</span>
+        <h2>26 years of hard engineering problems.</h2>
+        <p>Product development, manufacturing, process development, and root-cause across regulated, high-consequence industries.</p>
+      </div>
+      <div class="xp reveal">
+        <div class="xp-row">
+          <div class="xp-years">2021 — Now</div>
+          <div class="xp-main"><h3>Founder &amp; Principal Consultant</h3><div class="org"><b>PMB Engineering</b></div><p>Independent technical leadership for pilot and commercial manufacturing, root-cause investigations, and cross-functional programs — from development through commercial readiness.</p></div>
+          <div class="xp-tag">Consulting</div>
+        </div>
+        <div class="xp-row">
+          <div class="xp-years">2014 — 2021</div>
+          <div class="xp-main"><h3>Principal Technical Lead</h3><div class="org"><b>Phillips-Medisize</b> · Genentech program</div><p>Device principal technical lead for a complex implantable medical-device program — assembly and sub-assembly process leadership through clinical trials and commercialization readiness.</p></div>
+          <div class="xp-tag">Medical device</div>
+        </div>
+        <div class="xp-row">
+          <div class="xp-years">2013 — 2014</div>
+          <div class="xp-main"><h3>Lead Engineer — ICD Capacitor Line</h3><div class="org"><b>Medtronic</b></div><p>Led a six-engineer team duplicating a critical capacitor production line — expedited implementation with first-pass success in under a year.</p></div>
+          <div class="xp-tag">Scale-up</div>
+        </div>
+        <div class="xp-row">
+          <div class="xp-years">2012 — 2013</div>
+          <div class="xp-main"><h3>Business Process Consultant</h3><div class="org"><b>Wells Fargo</b> · Home Mortgage</div><p>Investigations and improvements across North American operations — clarifying process flow, defining useful metrics, and resolving systemic workflow problems.</p></div>
+          <div class="xp-tag">Process</div>
+        </div>
+        <div class="xp-row">
+          <div class="xp-years">2007 — 2012</div>
+          <div class="xp-main"><h3>Laser Weld Development Lead</h3><div class="org"><b>Medtronic</b></div><p>Laser-welding and process development across implantable-device therapies — batteries, capacitors, feedthroughs, leads, and interconnects — from concept through manufacturing.</p></div>
+          <div class="xp-tag">Joining</div>
+        </div>
+        <div class="xp-row">
+          <div class="xp-years">1999 — 2007</div>
+          <div class="xp-main"><h3>Process Development Engineer</h3><div class="org"><b>3M</b> · Fuel Cell Components</div><p>Led development of a roll-good gas diffusion layer for a domestic automotive OEM — 3M's first Tier-1 automotive supply agreement, Phase 1 value exceeding $20M.</p></div>
+          <div class="xp-tag">Materials</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section class="alt" style="padding-top:clamp(48px,6vw,80px); padding-bottom:clamp(48px,6vw,80px)">
+    <div class="wrap">
+      <div class="creds reveal">
+        <div class="cred"><h4>Methods</h4><p>Six Sigma <span>(DMAIC · DFSS · Lean)</span>, Black Belt-trained · DOE · FMEA · SPC · IQ/OQ/PQ · design controls</p></div>
+        <div class="cred"><h4>Technical</h4><p>Materials · metallurgy · welding &amp; joining · surface chemistry · films &amp; coatings · automation · metrology</p></div>
+        <div class="cred"><h4>Recognition</h4><p><span>5 U.S. patents ·</span> 3M Circle of Technical Excellence <span>·</span> Medtronic achievement awards</p></div>
+        <div class="cred"><h4>Education</h4><p>B.S. Chemical Engineering <span>·</span> University of Minnesota, Twin Cities</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-intro reveal">
+        <span class="kicker"><span class="eyebrow-num">04</span> Contact</span>
+        <h2>Let's discuss the challenge.</h2>
+        <p>If a project is stalled, a failure remains unresolved, or your team needs experienced technical leadership to find a path forward — tell me what you're working on and what you're trying to accomplish.</p>
+        <div class="person">
+          <div class="avatar" aria-hidden="true"><span>PB</span></div>
+          <div>
+            <div class="pn">Paul Boucher</div>
+            <div class="pt">Founder &amp; Principal Engineering Consultant</div>
+            <a class="pe" href="mailto:paulboucher@pmb-engineering.com">paulboucher@pmb-engineering.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.1s">
+        <form class="form" id="contact-form" novalidate>
+          <div class="two">
+            <div class="field"><label for="fn">Name <i>*</i></label><input id="fn" name="name" type="text" autocomplete="name" required /></div>
+            <div class="field"><label for="co">Company</label><input id="co" name="company" type="text" autocomplete="organization" /></div>
+          </div>
+          <div class="field"><label for="em">Email <i>*</i></label><input id="em" name="email" type="email" autocomplete="email" required /></div>
+          <div class="field"><label for="msg">What are you working on? <i>*</i></label><textarea id="msg" name="message" required></textarea></div>
+          <button type="submit" class="btn btn-primary">Send message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="form-note" id="form-note">Opens in your email client — sends directly to Paul.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="logo">
+          <span class="mark-hw" role="img" aria-label="PMB engineering"></span>
+        </span>
+        <p class="foot-tag">Senior engineering consulting and technical leadership for difficult product, process, and manufacturing problems.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#approach">Approach</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a href="mailto:paulboucher@pmb-engineering.com">Email</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>ENGINEERING CONSULTING · STILLWATER, MINNESOTA</span>
+      <span>© <span id="year">2026</span> PMB ENGINEERING</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+
+  /* ---- theme ---- */
+  try{ var saved = localStorage.getItem('pmb-theme'); if(saved){ root.setAttribute('data-theme', saved); } }catch(e){}
+  document.getElementById('theme-toggle').addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme');
+    var isDark = cur === 'dark' || (!cur && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('pmb-theme', next); }catch(e){}
+  });
+
+  /* ---- header shadow on scroll ---- */
+  var header = document.getElementById('site-header');
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 12); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---- mobile nav ---- */
+  var mnav = document.getElementById('mobile-nav');
+  var openNav = function(){ mnav.classList.add('open'); mnav.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; };
+  var closeNav = function(){ mnav.classList.remove('open'); mnav.setAttribute('aria-hidden','true'); document.body.style.overflow=''; };
+  document.getElementById('menu-open').addEventListener('click', openNav);
+  document.getElementById('menu-close').addEventListener('click', closeNav);
+  mnav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeNav); });
+
+  /* ---- reveal on scroll ---- */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---- contact form -> mailto ---- */
+  var form = document.getElementById('contact-form');
+  var note = document.getElementById('form-note');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim(), email = form.email.value.trim(),
+        company = form.company.value.trim(), message = form.message.value.trim();
+    if(!name || !email || !message){ note.textContent = 'Please add your name, email, and a short message.'; note.style.color='var(--accent)'; return; }
+    var subject = 'Engineering inquiry — ' + name + (company ? ' (' + company + ')' : '');
+    var body = message + '\n\n— ' + name + (company ? ', ' + company : '') + '\n' + email;
+    window.location.href = 'mailto:paulboucher@pmb-engineering.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    note.textContent = 'Opening your email client…'; note.style.color='var(--muted)';
+  });
+
+  /* ---- year ---- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

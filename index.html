@@ -229,11 +229,12 @@ section{padding:clamp(64px,9vw,120px) 0}
 .contact-intro h2{font-size:clamp(2.1rem,4.4vw,3.4rem)}
 .contact-intro p{color:var(--muted); margin-top:22px; font-size:1.06rem; max-width:42ch}
 .person{margin-top:40px; display:flex; gap:18px; align-items:center; padding:22px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow)}
-.avatar{width:64px;height:64px;flex:0 0 64px;border-radius:50%; background:var(--ink); display:grid; place-items:center; overflow:hidden}
+.avatar{width:96px;height:96px;flex:0 0 96px;border-radius:50%; background:var(--ink) url("paul-avatar.svg") center/cover; display:grid; place-items:center; overflow:hidden; border:2px solid var(--surface); box-shadow:var(--shadow)}
 .avatar span{font-family:"Fraunces",serif; font-size:1.5rem; color:var(--bg); font-weight:600}
 .person .pn{font-weight:600; font-size:1.05rem}
 .person .pt{color:var(--muted); font-size:.9rem; margin-top:2px}
 .person .pe{color:var(--accent); font-family:"IBM Plex Mono",monospace; font-size:.82rem; margin-top:8px; letter-spacing:.01em}
+.person .ph-note{color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; margin-top:6px}
 .person .pe:hover{text-decoration:underline}
 
 .form{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:clamp(24px,3vw,36px); box-shadow:var(--shadow)}
@@ -284,11 +285,13 @@ footer{border-top:1px solid var(--line); padding:56px 0 40px}
 }
 
 /* ---- handwritten logo (external svg, themeable via mask) ---- */
-.logo{gap:0}
-.mark-hw{display:block; height:34px; aspect-ratio:2343/531; background:var(--ink);
+.logo{gap:0; padding:6px 12px; margin-left:-12px; border-radius:10px; transition:background .25s ease, transform .2s ease}
+header .logo:hover{background:var(--accent-tint); transform:translateY(-1px)}
+header .logo:hover .mark-hw{background:var(--accent-strong)}
+.mark-hw{display:block; height:42px; aspect-ratio:2343/531; background:var(--ink); transition:background .25s ease;
   -webkit-mask:url("pmb-logo.svg") no-repeat center/contain; mask:url("pmb-logo.svg") no-repeat center/contain;}
-.mn-top .mark-hw{height:28px}
-footer .mark-hw{height:42px; margin-bottom:4px}
+.mn-top .mark-hw{height:32px}
+footer .mark-hw{height:50px; margin-bottom:4px}
 </style>
 </head>
 <body>
@@ -500,11 +503,12 @@ footer .mark-hw{height:42px; margin-bottom:4px}
         <h2>Let's discuss the challenge.</h2>
         <p>If a project is stalled, a failure remains unresolved, or your team needs experienced technical leadership to find a path forward — tell me what you're working on and what you're trying to accomplish.</p>
         <div class="person">
-          <div class="avatar" aria-hidden="true"><span>PB</span></div>
+          <div class="avatar" role="img" aria-label="Illustrated placeholder portrait — swap for a real headshot"></div>
           <div>
             <div class="pn">Paul Boucher</div>
             <div class="pt">Founder &amp; Principal Engineering Consultant</div>
             <a class="pe" href="mailto:paulboucher@pmb-engineering.com">paulboucher@pmb-engineering.com</a>
+            <div class="ph-note">Placeholder photo — swap for real headshot</div>
           </div>
         </div>
       </div>

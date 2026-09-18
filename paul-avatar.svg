@@ -1,0 +1,60 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrated placeholder portrait — swap for a real headshot">
+  <rect width="240" height="240" fill="#F1E3C9"/>
+
+  <!-- shoulders / shirt -->
+  <path d="M36 240 Q38 176 120 166 Q202 176 204 240 Z" fill="#2E4A63"/>
+  <path d="M97 176 L120 202 L143 176 L134 166 L120 184 L106 166 Z" fill="#1F384C"/>
+  <path d="M109 178 L120 198 L131 178 L120 171 Z" fill="#8FA6B5"/>
+  <rect x="50" y="200" width="15" height="11" rx="2.5" fill="#B0803A"/>
+
+  <!-- neck -->
+  <rect x="101" y="148" width="38" height="36" rx="11" fill="#D89A68"/>
+  <path d="M101 166 Q120 180 139 166 L139 184 Q120 197 101 184 Z" fill="#C6875A"/>
+
+  <!-- ears -->
+  <ellipse cx="69" cy="127" rx="9.5" ry="13.5" fill="#D89A68"/>
+  <ellipse cx="171" cy="127" rx="9.5" ry="13.5" fill="#D89A68"/>
+  <ellipse cx="69" cy="128" rx="4" ry="6.5" fill="#C6875A"/>
+  <ellipse cx="171" cy="128" rx="4" ry="6.5" fill="#C6875A"/>
+
+  <!-- head -->
+  <path d="M69 118 Q64 68 120 60 Q176 68 171 118 Q173 156 120 170 Q67 156 69 118 Z" fill="#E3AE82"/>
+  <path d="M90 148 Q120 170 150 148 Q141 162 120 166 Q99 162 90 148 Z" fill="#CE9569" opacity=".5"/>
+
+  <!-- hair -->
+  <path d="M60 108 Q52 54 120 46 Q188 54 180 108 Q173 82 152 76 Q162 58 132 52 Q120 68 102 54 Q82 62 88 80 Q68 82 60 108 Z" fill="#3A3E44"/>
+  <path d="M92 58 Q108 70 102 86" stroke="#9AA0A8" stroke-width="3" fill="none" stroke-linecap="round" opacity=".75"/>
+  <path d="M148 64 Q156 76 150 90" stroke="#9AA0A8" stroke-width="3" fill="none" stroke-linecap="round" opacity=".75"/>
+  <path d="M88 64 Q112 52 138 58" stroke="#63686F" stroke-width="4" fill="none" stroke-linecap="round" opacity=".5"/>
+
+  <!-- brows -->
+  <path d="M82 106 Q98 95 116 102" stroke="#2E3237" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+  <path d="M124 102 Q142 95 158 106" stroke="#2E3237" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+
+  <!-- eyes (anime-leaning: bigger, glinting) -->
+  <path d="M83 120 Q98 109 115 119 Q99 128 83 120 Z" fill="#FFFFFF"/>
+  <circle cx="99" cy="119" r="6.4" fill="#16233D"/>
+  <circle cx="97.5" cy="116.5" r="2.1" fill="#FFFFFF"/>
+  <path d="M125 119 Q142 109 157 120 Q141 128 125 119 Z" fill="#FFFFFF"/>
+  <circle cx="141" cy="119" r="6.4" fill="#16233D"/>
+  <circle cx="139.5" cy="116.5" r="2.1" fill="#FFFFFF"/>
+
+  <!-- glasses -->
+  <rect x="78" y="109" width="38" height="23" rx="9.5" fill="none" stroke="#16233D" stroke-width="2.4" opacity=".9"/>
+  <rect x="124" y="109" width="38" height="23" rx="9.5" fill="none" stroke="#16233D" stroke-width="2.4" opacity=".9"/>
+  <path d="M116 118 Q120 113 124 118" stroke="#16233D" stroke-width="2.4" fill="none" opacity=".9"/>
+
+  <!-- blush -->
+  <ellipse cx="88" cy="136" rx="8.5" ry="4.2" fill="#E8916B" opacity=".3"/>
+  <ellipse cx="152" cy="136" rx="8.5" ry="4.2" fill="#E8916B" opacity=".3"/>
+
+  <!-- nose -->
+  <path d="M120 123 Q115 138 121 142 Q126 143 129 140" stroke="#B87E50" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+
+  <!-- smirk -->
+  <path d="M102 151 Q120 160 140 149" stroke="#8A4A2E" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+
+  <!-- beard -->
+  <path d="M74 130 Q70 160 92 174 Q106 182 120 182 Q134 182 148 174 Q170 160 166 130 Q159 153 142 158 Q147 139 138 129 Q128 141 120 141 Q112 141 102 129 Q93 139 98 158 Q81 153 74 130 Z" fill="#43474D"/>
+  <path d="M98 158 Q110 170 120 170 Q130 170 142 158" stroke="#2C2F33" stroke-width="2" fill="none" opacity=".5"/>
+</svg>

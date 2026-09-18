@@ -43,7 +43,10 @@
   @media (prefers-reduced-motion: reduce){.blink{animation:none}}
 
   input,textarea{font-family:"Times New Roman",Times,serif; font-size:14px; border:1px inset #808080; padding:3px}
-  input[type=submit]{font-family:Arial,Helvetica,sans-serif; font-weight:bold; padding:4px 14px; border:2px outset #C0C0C0; background:#C0C0C0; cursor:pointer}
+  input[type=submit],input[type=button]{font-family:Arial,Helvetica,sans-serif; font-weight:bold; padding:4px 14px; border:2px outset #C0C0C0; background:#C0C0C0; cursor:pointer}
+  .bigbtn{display:inline-block; font-family:Arial,Helvetica,sans-serif; font-weight:bold; font-size:16px; color:#000000; background:#C0C0C0; border:3px outset #C0C0C0; padding:10px 22px; text-decoration:none; margin:8px 0}
+  .bigbtn:hover{background:#D8D8D8}
+  .bigbtn:active{border-style:inset}
 </style>
 </head>
 <body>
@@ -84,7 +87,7 @@
       Founder &amp; Principal Engineering Consultant<br>
       Stillwater, Minnesota<br>
       E-mail: <a href="mailto:paulboucher@pmb-engineering.com">paulboucher@pmb-engineering.com</a><br>
-      LinkedIn: <!-- TODO: swap "#" for Paul's real linkedin.com/in/... URL --><a href="#">View Profile</a></p>
+      LinkedIn: <a href="https://www.linkedin.com/in/paulmboucher/" target="_blank" rel="noopener">View Profile</a></p>
     </td>
   </tr></table>
 
@@ -136,17 +139,12 @@
   </div>
 
   <div class="boxhead" id="contact">&raquo; CONTACT US</div>
-  <div class="boxbody">
-    <p>Please complete the form below and click Submit. We will respond as soon as possible.</p>
-    <form id="contact-form">
-      <table cellpadding="4">
-        <tr><td align="right">Name:</td><td><input type="text" id="fn" name="name" size="30" required></td></tr>
-        <tr><td align="right">Company:</td><td><input type="text" id="co" name="company" size="30"></td></tr>
-        <tr><td align="right">E-mail:</td><td><input type="text" id="em" name="email" size="30" required></td></tr>
-        <tr><td align="right" valign="top">Message:</td><td><textarea id="msg" name="message" rows="5" cols="34" required></textarea></td></tr>
-        <tr><td></td><td><input type="submit" value="Submit Query"></td></tr>
-      </table>
-    </form>
+  <div class="boxbody" style="text-align:center; padding:16px 10px">
+    <p><b>No forms to fill out!</b> Just click below.</p>
+    <p><a href="mailto:paulboucher@pmb-engineering.com?subject=Let%27s%20discuss%20a%20problem" class="bigbtn">&#9993; CLICK HERE TO E-MAIL PAUL &#9993;</a></p>
+    <p style="font-size:12px"><input type="button" id="copy-email" value="Copy E-mail Address">
+    &nbsp; <a href="https://www.linkedin.com/in/paulmboucher/" target="_blank" rel="noopener">[ View LinkedIn Profile ]</a></p>
+    <p id="oc-note" style="font-size:11px; color:#333333">&nbsp;</p>
   </div>
 
   <div class="footer">
@@ -157,12 +155,16 @@
 </div>
 
 <script>
-document.getElementById('contact-form').addEventListener('submit', function(e){
-  e.preventDefault();
-  var name = document.getElementById('fn').value, msg = document.getElementById('msg').value, em = document.getElementById('em').value, co = document.getElementById('co').value;
-  var body = encodeURIComponent(msg + "\n\n-- " + name + (co ? " ("+co+")" : "") + "\n" + em);
-  window.location.href = "mailto:paulboucher@pmb-engineering.com?subject=" + encodeURIComponent("New inquiry from "+name) + "&body=" + body;
-});
+var copyBtn = document.getElementById('copy-email');
+var ocNote = document.getElementById('oc-note');
+if(copyBtn){
+  copyBtn.addEventListener('click', function(){
+    var done = function(){ ocNote.textContent = 'Copied to clipboard: paulboucher@pmb-engineering.com'; setTimeout(function(){ ocNote.textContent=' '; }, 2600); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText('paulboucher@pmb-engineering.com').then(done, function(){ window.location.href='mailto:paulboucher@pmb-engineering.com'; });
+    } else { window.location.href='mailto:paulboucher@pmb-engineering.com'; }
+  });
+}
 </script>
 </body>
 </html>

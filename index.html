@@ -117,7 +117,7 @@ img,svg{display:block; max-width:100%}
 
 /* ============ HEADER ============ */
 header{
-  position:sticky; top:0; z-index:50;
+  position:sticky; top:41px; z-index:50;
   background:color-mix(in srgb, var(--bg) 82%, transparent);
   backdrop-filter:saturate(160%) blur(14px); -webkit-backdrop-filter:saturate(160%) blur(14px);
   border-bottom:1px solid transparent; transition:border-color .3s ease, background .3s ease;
@@ -235,6 +235,16 @@ section{padding:clamp(64px,9vw,120px) 0}
 .person .pt{color:var(--muted); font-size:.9rem; margin-top:2px}
 .person .pe{color:var(--accent); font-family:"IBM Plex Mono",monospace; font-size:.82rem; margin-top:8px; letter-spacing:.01em}
 .person .ph-note{color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; margin-top:6px}
+
+/* ============ HERO BYLINE ============ */
+.hero-byline{display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin-bottom:26px}
+.hb-avatar{width:60px;height:60px;flex:0 0 60px; border:2px solid var(--surface)}
+.hb-text{margin-right:auto}
+.hb-name{font-weight:600; font-size:.98rem; color:var(--ink)}
+.hb-role{color:var(--muted); font-size:.82rem; margin-top:1px}
+.hb-links{display:flex; gap:8px}
+.hb-links .icon-btn{width:38px;height:38px}
+.hb-links .icon-btn svg{width:17px;height:17px}
 .person .pe:hover{text-decoration:underline}
 
 .form{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:clamp(24px,3vw,36px); box-shadow:var(--shadow)}
@@ -285,21 +295,50 @@ footer{border-top:1px solid var(--line); padding:56px 0 40px}
 }
 
 /* ---- handwritten logo (external svg, themeable via mask) ---- */
-.logo{gap:0; padding:6px 12px; margin-left:-12px; border-radius:10px; transition:background .25s ease, transform .2s ease}
-header .logo:hover{background:var(--accent-tint); transform:translateY(-1px)}
-header .logo:hover .mark-hw{background:var(--accent-strong)}
+.logo{gap:10px; align-items:center}
+.eng-mark{width:23px;height:23px;flex:0 0 23px; color:var(--accent-strong)}
+.eng-mark svg{width:100%;height:100%; display:block}
 .mark-hw{display:block; height:42px; aspect-ratio:2343/531; background:var(--ink); transition:background .25s ease;
   -webkit-mask:url("pmb-logo.svg") no-repeat center/contain; mask:url("pmb-logo.svg") no-repeat center/contain;}
 .mn-top .mark-hw{height:32px}
+.mn-top .eng-mark{width:18px;height:18px;flex:0 0 18px}
 footer .mark-hw{height:50px; margin-bottom:4px}
+footer .eng-mark{width:26px;height:26px;flex:0 0 26px}
+/* header lockup: graph-paper title-block, standing the mark out */
+#site-header .nav > .logo{
+  padding:8px 16px 8px 12px; margin-left:-12px; border-radius:10px; border:1px solid var(--line);
+  background-color:var(--surface);
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 7px, var(--line-2) 7px, var(--line-2) 8px),
+    repeating-linear-gradient(90deg, transparent, transparent 7px, var(--line-2) 7px, var(--line-2) 8px);
+  transition:border-color .25s ease, transform .2s ease, box-shadow .25s ease;
+}
+#site-header .nav > .logo:hover{border-color:var(--accent); transform:translateY(-1px); box-shadow:var(--shadow)}
+#site-header .nav > .logo:hover .mark-hw{background:var(--accent-strong)}
+#site-header .nav > .logo:hover .eng-mark{color:var(--accent)}
+
+/* ============ VERSION SWITCHER ============ */
+.ver-switch{position:sticky; top:0; z-index:70; display:flex; justify-content:center; gap:6px;
+  padding:9px clamp(20px,5vw,48px); background:var(--ink); font-family:"IBM Plex Mono",monospace}
+.ver-switch a{font-size:11px; font-weight:500; letter-spacing:.08em; text-transform:uppercase;
+  color:rgba(251,249,245,.55); padding:6px 14px; border-radius:999px; transition:background .2s, color .2s}
+.ver-switch a:hover{color:#FBF9F5}
+.ver-switch a.on{background:rgba(251,249,245,.14); color:#FBF9F5}
 </style>
 </head>
 <body>
+
+<div class="ver-switch" role="navigation" aria-label="Design version">
+  <a href="version-bold.html">Bold</a>
+  <a href="index.html" class="on">Studio</a>
+  <a href="version-classic.html">Classic</a>
+</div>
 
 <!-- reusable logo markup is inlined where needed -->
 <header id="site-header">
   <div class="wrap nav">
     <a href="#top" class="logo" aria-label="PMB Engineering home">
+      <span class="eng-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.3" r="1.3" fill="currentColor" stroke="none"/><path d="M12 5.6 6 20.4M12 5.6l6 14.8"/><path d="M8.7 14.2h6.6"/><circle cx="6" cy="21" r=".9" fill="currentColor" stroke="none"/><circle cx="18" cy="21" r=".9" fill="currentColor" stroke="none"/></svg></span>
       <span class="mark-hw" role="img" aria-label="PMB engineering"></span>
     </a>
 
@@ -326,6 +365,7 @@ footer .mark-hw{height:50px; margin-bottom:4px}
 <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
   <div class="mn-top">
     <span class="logo" style="pointer-events:none">
+      <span class="eng-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.3" r="1.3" fill="currentColor" stroke="none"/><path d="M12 5.6 6 20.4M12 5.6l6 14.8"/><path d="M8.7 14.2h6.6"/><circle cx="6" cy="21" r=".9" fill="currentColor" stroke="none"/><circle cx="18" cy="21" r=".9" fill="currentColor" stroke="none"/></svg></span>
       <span class="mark-hw" role="img" aria-label="PMB engineering"></span>
     </span>
     <button class="icon-btn" id="menu-close" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
@@ -345,6 +385,18 @@ footer .mark-hw{height:50px; margin-bottom:4px}
   <section class="hero" style="padding-bottom:clamp(48px,7vw,80px)">
     <div class="wrap hero-grid">
       <div class="reveal">
+        <div class="hero-byline">
+          <div class="avatar hb-avatar" role="img" aria-label="Illustrated placeholder portrait — swap for a real headshot"></div>
+          <div class="hb-text">
+            <div class="hb-name">Paul Boucher</div>
+            <div class="hb-role">Founder &amp; Principal Engineering Consultant</div>
+          </div>
+          <div class="hb-links">
+            <a class="icon-btn" href="mailto:paulboucher@pmb-engineering.com" aria-label="Email Paul Boucher"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+            <!-- TODO: swap "#" for Paul's real linkedin.com/in/... URL -->
+            <a class="icon-btn" href="#" target="_blank" rel="noopener" aria-label="Paul Boucher on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.71h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21H9z"/></svg></a>
+          </div>
+        </div>
         <span class="kicker">Senior Engineering Consulting</span>
         <h1>Difficult problems need <em>experienced</em> engineering.</h1>
         <p class="hero-sub">Senior technical consulting, root-cause problem solving, and engineering leadership for challenging product, process, and manufacturing work — especially when the problem isn't well defined and the conventional approach has stalled.</p>
@@ -534,7 +586,8 @@ footer .mark-hw{height:50px; margin-bottom:4px}
     <div class="foot-grid">
       <div>
         <span class="logo">
-          <span class="mark-hw" role="img" aria-label="PMB engineering"></span>
+          <span class="eng-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.3" r="1.3" fill="currentColor" stroke="none"/><path d="M12 5.6 6 20.4M12 5.6l6 14.8"/><path d="M8.7 14.2h6.6"/><circle cx="6" cy="21" r=".9" fill="currentColor" stroke="none"/><circle cx="18" cy="21" r=".9" fill="currentColor" stroke="none"/></svg></span>
+      <span class="mark-hw" role="img" aria-label="PMB engineering"></span>
         </span>
         <p class="foot-tag">Senior engineering consulting and technical leadership for difficult product, process, and manufacturing problems.</p>
       </div>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMB Engineering Consulting - Home Page</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  body{margin:0; background:#D6D6D2; color:#000000; font-family:"Times New Roman",Times,serif; font-size:16px; line-height:1.4}
+  a{color:#0000EE}
+  a:visited{color:#551A8B}
+  a:hover{color:#FF0000}
+  h1,h2,h3{font-family:"Times New Roman",Times,serif; font-weight:bold; margin:0 0 8px 0}
+  table{border-collapse:collapse}
+  .ver-switch{background:#000080; padding:6px 10px; text-align:center; font-family:Arial,Helvetica,sans-serif; font-size:11px}
+  .ver-switch a{color:#FFFF00; margin:0 10px; text-decoration:underline}
+  .ver-switch a.on{color:#FFFFFF; text-decoration:none; font-weight:bold}
+
+  .titlebar{background:#000080; color:#FFFFFF; padding:10px 14px; font-family:Arial,Helvetica,sans-serif}
+  .titlebar table{width:100%}
+  .titlebar h1{color:#FFFFFF; font-size:22px}
+  .titlebar .sub{font-size:11px; color:#C0C0D8}
+
+  .navbar{background:#C0C0C0; border-top:2px solid #FFFFFF; border-bottom:2px solid #808080; padding:6px 14px; font-family:Arial,Helvetica,sans-serif; font-size:13px}
+  .navbar a{margin-right:14px; font-weight:bold}
+
+  .wrapper{max-width:760px; margin:14px auto; background:#FFFFFF; border:2px solid #808080; padding:16px}
+
+  .boxhead{background:#000080; color:#FFFFFF; font-family:Arial,Helvetica,sans-serif; font-weight:bold; font-size:13px; padding:4px 8px; margin:20px 0 0 0}
+  .boxbody{border:1px solid #000000; border-top:none; padding:10px; margin-bottom:4px}
+
+  .photobox{border:1px solid #000000; background:#EEEEEE; width:120px; height:150px; text-align:center; vertical-align:middle; font-family:Arial,Helvetica,sans-serif; font-size:11px; color:#555555}
+
+  ul{margin:6px 0 6px 22px; padding:0}
+  li{margin-bottom:4px}
+
+  .footer{font-family:Arial,Helvetica,sans-serif; font-size:11px; color:#333333; text-align:center; padding:14px; border-top:1px solid #808080; margin-top:10px}
+
+  .hitcounter{font-family:"Courier New",monospace; background:#000000; color:#00FF00; padding:2px 6px; letter-spacing:2px; border:1px inset #808080}
+
+  .blink{animation:blinker 1s step-start infinite}
+  @keyframes blinker{50%{opacity:0}}
+  @media (prefers-reduced-motion: reduce){.blink{animation:none}}
+
+  input,textarea{font-family:"Times New Roman",Times,serif; font-size:14px; border:1px inset #808080; padding:3px}
+  input[type=submit]{font-family:Arial,Helvetica,sans-serif; font-weight:bold; padding:4px 14px; border:2px outset #C0C0C0; background:#C0C0C0; cursor:pointer}
+</style>
+</head>
+<body>
+
+<div class="ver-switch">
+  <a href="version-bold.html">BOLD</a> |
+  <a href="index.html">STUDIO</a> |
+  <a href="version-classic.html" class="on">CLASSIC</a>
+</div>
+
+<div class="titlebar">
+  <table><tr>
+    <td><h1>PMB ENGINEERING CONSULTING</h1><div class="sub">"Difficult problems need experienced engineering"</div></td>
+    <td align="right" valign="top"><span class="hitcounter">003417</span><br><span style="font-size:10px">visitors since 2026</span></td>
+  </tr></table>
+</div>
+<div class="navbar">
+  <a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact Us</a>
+  <span class="blink" style="float:right; color:#FF0000; font-weight:bold; font-family:Arial,sans-serif; font-size:12px">&#9733; NEW! &#9733;</span>
+</div>
+
+<div class="wrapper">
+
+  <table width="100%"><tr>
+    <td valign="top" width="130">
+      <div class="photobox">[ Photo<br>Placeholder ]</div>
+      <p style="font-family:Arial,Helvetica,sans-serif; font-size:10px; text-align:center; color:#555555; margin-top:4px">Fig. 1 &mdash; P. Boucher</p>
+    </td>
+    <td valign="top" style="padding-left:14px">
+      <h2 id="home">Welcome to PMB Engineering Consulting</h2>
+      <p>PMB Engineering provides senior technical consulting, root-cause problem solving, and engineering
+      leadership for challenging product, process, and manufacturing problems.</p>
+      <p>When the problem isn't well defined, the conventional approach isn't working, or your engineering
+      team needs experienced technical leadership to find a path forward, please do not hesitate to contact us.</p>
+      <p><b>Paul Boucher</b><br>
+      Founder &amp; Principal Engineering Consultant<br>
+      Stillwater, Minnesota<br>
+      E-mail: <a href="mailto:paulboucher@pmb-engineering.com">paulboucher@pmb-engineering.com</a><br>
+      LinkedIn: <!-- TODO: swap "#" for Paul's real linkedin.com/in/... URL --><a href="#">View Profile</a></p>
+    </td>
+  </tr></table>
+
+  <div class="boxhead" id="services">&raquo; OUR SERVICES</div>
+  <div class="boxbody">
+    <ul>
+      <li><b>Technical Problem Solving</b> &mdash; Complex failures, difficult root-cause investigations, capability problems, and situations where conventional approaches have stalled.</li>
+      <li><b>Process &amp; Manufacturing Development</b> &mdash; Process development, equipment and tooling, validation and qualification, statistical methods, and manufacturing scale-up.</li>
+      <li><b>Technical Leadership</b> &mdash; Senior engineering leadership for critical projects, accelerated timelines, cross-functional teams, and high-visibility technical challenges.</li>
+      <li><b>Design for Manufacturability</b> &mdash; Bringing manufacturing capability upstream so product requirements and designs are grounded in what can actually be produced robustly.</li>
+    </ul>
+  </div>
+
+  <div class="boxhead" id="about">&raquo; OUR APPROACH</div>
+  <div class="boxbody">
+    <ol>
+      <li><b>Start with the problem.</b> Understand what is actually happening before deciding what the solution should be.</li>
+      <li><b>Move between details and the system.</b> Get into the data when a problem demands it; step back to see how requirements, manufacturing, risk, schedule and people interact.</li>
+      <li><b>Use evidence to decide.</b> Data, statistics, experiments and direct observation, matched to the decision at hand.</li>
+      <li><b>The objective is progress.</b> Enough understanding to make sound decisions and move the work forward.</li>
+    </ol>
+  </div>
+
+  <div class="boxhead" id="experience">&raquo; PROFESSIONAL EXPERIENCE (26 YEARS)</div>
+  <div class="boxbody">
+    <table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-color:#999999">
+      <tr style="background:#DEDEDE; font-family:Arial,Helvetica,sans-serif; font-size:12px"><td width="110"><b>Dates</b></td><td><b>Position / Company</b></td></tr>
+      <tr><td valign="top">2021&ndash;Present</td><td><b>Founder &amp; Principal Consultant</b>, PMB Engineering &mdash; independent technical leadership for pilot and commercial manufacturing, root-cause investigations, and cross-functional programs.</td></tr>
+      <tr><td valign="top">2014&ndash;2021</td><td><b>Principal Technical Lead</b>, Phillips-Medisize (Genentech program) &mdash; device principal technical lead for a complex implantable medical-device program.</td></tr>
+      <tr><td valign="top">2013&ndash;2014</td><td><b>Lead Engineer</b>, Medtronic &mdash; led a six-engineer team duplicating the critical ICD capacitor production line.</td></tr>
+      <tr><td valign="top">2012&ndash;2013</td><td><b>Business Process Consultant</b>, Wells Fargo Home Mortgage &mdash; process improvement across North American operations.</td></tr>
+      <tr><td valign="top">2007&ndash;2012</td><td><b>Laser Weld Development Lead</b>, Medtronic &mdash; laser welding and process development across implantable-device therapies.</td></tr>
+      <tr><td valign="top">1999&ndash;2007</td><td><b>Process Development Engineer</b>, 3M Fuel Cell Components &mdash; led development of a roll-good gas diffusion layer; 3M's first Tier-1 automotive supply agreement.</td></tr>
+    </table>
+  </div>
+
+  <div class="boxhead">&raquo; CREDENTIALS</div>
+  <div class="boxbody">
+    <table width="100%" cellpadding="4"><tr>
+      <td valign="top" width="50%">
+        <b>Methods:</b> Six Sigma (DMAIC/DFSS/Lean), Black Belt-trained, DOE, FMEA, SPC, IQ/OQ/PQ, design controls<br><br>
+        <b>Technical:</b> Materials, metallurgy, welding &amp; joining, surface chemistry, films &amp; coatings, automation, metrology
+      </td>
+      <td valign="top" width="50%">
+        <b>Recognition:</b> 5 U.S. patents, 3M Circle of Technical Excellence, Medtronic achievement awards<br><br>
+        <b>Education:</b> B.S. Chemical Engineering, University of Minnesota, Twin Cities
+      </td>
+    </tr></table>
+  </div>
+
+  <div class="boxhead" id="contact">&raquo; CONTACT US</div>
+  <div class="boxbody">
+    <p>Please complete the form below and click Submit. We will respond as soon as possible.</p>
+    <form id="contact-form">
+      <table cellpadding="4">
+        <tr><td align="right">Name:</td><td><input type="text" id="fn" name="name" size="30" required></td></tr>
+        <tr><td align="right">Company:</td><td><input type="text" id="co" name="company" size="30"></td></tr>
+        <tr><td align="right">E-mail:</td><td><input type="text" id="em" name="email" size="30" required></td></tr>
+        <tr><td align="right" valign="top">Message:</td><td><textarea id="msg" name="message" rows="5" cols="34" required></textarea></td></tr>
+        <tr><td></td><td><input type="submit" value="Submit Query"></td></tr>
+      </table>
+    </form>
+  </div>
+
+  <div class="footer">
+    PMB ENGINEERING CONSULTING &middot; STILLWATER, MINNESOTA &middot; Copyright &copy; 2026 PMB Consulting LLC. All Rights Reserved.<br>
+    This site best viewed at 1024x768 resolution.&nbsp; Last updated: September 2026.
+  </div>
+
+</div>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name = document.getElementById('fn').value, msg = document.getElementById('msg').value, em = document.getElementById('em').value, co = document.getElementById('co').value;
+  var body = encodeURIComponent(msg + "\n\n-- " + name + (co ? " ("+co+")" : "") + "\n" + em);
+  window.location.href = "mailto:paulboucher@pmb-engineering.com?subject=" + encodeURIComponent("New inquiry from "+name) + "&body=" + body;
+});
+</script>
+</body>
+</html>
